@@ -1,10 +1,44 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+@model List<User>
+<h1 style="text-align:center">List of Users</h1>
 
-<h1 style="text-align:center">Login Form</h1><br />
+<a class="btn btn-primary float-md-start" asp-controller="Login" asp-action="Register">Create New User</a>
+<br />
+<br />
+<div class="container d-flex justify-content-center">
+    
+<table class="table table-bordered table-striped table-danger w-100 h-auto">
+    <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Password</td>
+                    <td>
+                        <a asp-controller="Login" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary form-control">Edit</a> <br />
+                        
+                    @*</td>
+                    <td>*@
+                        <a asp-controller="Login" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger form-control" onclick="return confirm('Are you sure to Delete')">Delete</a>
+                    </td>
+            </tr>
+        }
+    </tbody>
+                   
+</table>
+</div>
+
+
+@*<h1 style="text-align:center">Login Form</h1><br />
  <div class="container d-flex justify-content-center">       
     <form method="post">
         <div>
@@ -28,20 +62,12 @@
             </tr>
           </table>
         </div>
-        <button type="button" class="btn btn-primary" asp-controller="Login" asp-action="Register">Registration</button>
+        <button type="submit" class="btn btn-primary" asp-controller="Login" asp-action="Register">Registration</button>
             <button type="reset" class="btn btn-danger">Reset</button>
 
 
-        @*<label class="form-control">Id:</label>
-        <input type="text" placeholder="UserId" />
-        <label class="form-control">Name:</label>
-        <input type="text" placeholder="UserName" />
-        <label class="form-control">E-Mail:</label>
-        <input type="text" placeholder="UserEmail" />
-        <label class="form-control">Pasword:</label>
-        <input type="password" placeholder="password" aria-hidden="true"  /><br /> <br />*@
-        
+       
     </form>
 </div>
-
+*@
 @*<p>Anil kumar</p> *@

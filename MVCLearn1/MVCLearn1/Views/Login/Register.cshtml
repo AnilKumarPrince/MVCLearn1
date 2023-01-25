@@ -1,0 +1,30 @@
+﻿@model User
+<h1 style="text-align:center">Login Form</h1><br />
+ <div class="container d-flex justify-content-center">
+    <form method="post">
+        <div>
+          <table class="table table-danger w-20 h-auto" >
+
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" placeholder="UserId" asp-for="Id" /></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                    <td><input type="text" placeholder="UserName" asp-for="Name" /></td>
+            </tr>
+             <tr>
+                <td>Email:</td>
+                    <td><input type="text" placeholder="UserEmail" asp-for="Email" /></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                    <td><input type="password" placeholder="Password" asp-for="Password" hidden-aria="true" /></td>
+            </tr>
+          </table>
+        </div>
+        <button type="submit" class="btn btn-primary" asp-controller="Login" asp-action="Register">Registration</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+    </form>
+</div>
+
